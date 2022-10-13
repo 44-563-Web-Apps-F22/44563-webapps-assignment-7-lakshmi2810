@@ -23,7 +23,7 @@
 </html>
 <body>
 
-    <h1>Lakshmi Muppoaraju builds a cycler</h1>
+    <h1>Lakshmi Mupparaju builds a cycler</h1>
     <div class="flex-container" id="target">
 		<div class="cycler">Item 1</div>
 		<div class="cycler">Item 2</div>
@@ -35,8 +35,9 @@
 	<button onclick="makeNewDiv()">Add value</button>
 
 	<input type="text" id="text">
-	<button type="button" onclick="get()">Get</button>
-	<button type="button" onclick="spin()">Spin</button>
+	<button type="button" onclick="get()"  style="background-color:mediumseagreen;">Get</button>
+	<button type="button" onclick="spin()"  style="background-color: mediumseagreen;">Spin</button>
+	<button type="button" onclick="swap()" style="background-color: mediumseagreen;">Swap</button>
 	
 </body>
 <script>
@@ -70,5 +71,20 @@
 			container.insertBefore(removedItem,container.firstChild);
 		}
 	}
+
+	function swap() {
+                let items = document.getElementsByClassName("cycler")
+                let k = document.getElementById("target")
+                let fs= Math.floor(Math.random() * items.length)
+                let ss = Math.floor(Math.random() * items.length)
+                let swap1= document.getElementsByClassName("cycler")[fs]
+                let swap2= document.getElementsByClassName("cycler")[ss]
+                if(items.length > 1) {
+                    let temp = swap1.innerHTML
+                    swap1.innerHTML = swap2.innerHTML
+                    swap2.innerHTML = temp
+                }
+            }
+
 </script>
 </html>	

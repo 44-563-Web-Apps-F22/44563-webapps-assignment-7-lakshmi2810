@@ -14,7 +14,7 @@
 
 </head>
 <body>
-<h1>Treasure hunt by Lakshmi Mupparaju</h1>
+<h1 style="color:blue">Treasure hunt by Lakshmi Mupparaju</h1>
 <b><p style="color:brown;">Click on the chests to search for treasure</p></b>
 <b><p id="chests" style="color: darkblue; font-family: 'Times New Roman', Times, serif; font-style: italic; text-align: center;">Number of chests checked is zero</p></b>
 <b><p id="score" style="color: darkgreen; font-family: 'Times New Roman', Times, serif; font-style: italic; text-align: center;">Score is unknown</p></b>
@@ -120,7 +120,8 @@
     let chestCount=0;
     let score=0;
     let lastCheck=12;
-    let treasureLocation=18;
+    
+    let treasureLocation = Math.floor(Math.random() * 24);
     function check(position){
         var imageId = ids[position];
         if(position == treasureLocation){ 
@@ -168,6 +169,21 @@
                     document.getElementById("help").innerHTML = "Sorry, no help available" ;
                 }
     }
+    function resetGame() {
+                treasureLocation = Math.floor(Math.random() * 25)
+                while(treasureLocation == 12) {
+                    treasureLocation = Math.floor(Math.random() * 25)
+                }
+                chestCount = 0
+                score = 0
+                document.getElementById("chests").innerHTML = "Number of chests checked is zero"
+                document.getElementById("score").innerHTML = "Score is unknown"
+                for(let x = 0; x < 25; x++) {
+                    if(x != 12) {
+                        document.getElementById(ids[x]).src = "tres.jpg"
+                    }
+                }
+            }
 </script>
 </body>
 </html>
